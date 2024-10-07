@@ -21,9 +21,4 @@ public class VisibilityToggle : MonoBehaviour
 
 
     }
-
-    public void CloseObject()
-    {
-        specificObject.SetActive(false);
-    }
 }
