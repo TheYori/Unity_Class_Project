@@ -6,7 +6,8 @@ using System.Security.Cryptography.X509Certificates;
 
 public class VisibilityToggle : MonoBehaviour
 {
-    public GameObject specificObject;
+    public GameObject specificObject; //Object you want to open and close when clicking.
+    public GameObject objectToDisable; //Object you want to close - Specifically used for closing Windows' Start Menu.
     
 
     public void Visibility()
@@ -16,6 +17,7 @@ public class VisibilityToggle : MonoBehaviour
             // Toggle the active state of the object
             bool isActive = specificObject.activeSelf;
             specificObject.SetActive(!isActive);
+            objectToDisable.SetActive(false);
         }
 
 

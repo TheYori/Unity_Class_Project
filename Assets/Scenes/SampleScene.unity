@@ -328,6 +328,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   specificObject: {fileID: 296745422}
+  objectToDisable: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -508,7 +509,6 @@ GameObject:
   - component: {fileID: 521179877}
   - component: {fileID: 521179876}
   - component: {fileID: 521179875}
-  - component: {fileID: 521179878}
   m_Layer: 5
   m_Name: Start_Button
   m_TagString: Untagged
@@ -580,7 +580,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 296745424}
-        m_TargetAssemblyTypeName: StartButton, Assembly-CSharp
+        m_TargetAssemblyTypeName: VisibilityToggle, Assembly-CSharp
         m_MethodName: Visibility
         m_Mode: 1
         m_Arguments:
@@ -629,19 +629,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 521179873}
   m_CullTransparentMesh: 1
---- !u!114 &521179878
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 521179873}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6c8302606138bd4ca9f7cf764e2abde, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  specificObject: {fileID: 0}
 --- !u!1 &796871102
 GameObject:
   m_ObjectHideFlags: 0
