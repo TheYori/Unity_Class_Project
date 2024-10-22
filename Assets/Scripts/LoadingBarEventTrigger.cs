@@ -1,27 +1,27 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class DelayedAnimation : MonoBehaviour
 {
-    public Animator animator; // Reference to the Animator component
-    public string animationTriggerName = "PlayAnimation"; // The name of the trigger in the Animator
-    public float delayTime = 2.0f; // The delay time in seconds after the event
+   private Animator mAnimator;
 
-    // This function will be called when the event is triggered
-    public void TriggerEvent()
-    {
-        // Start the coroutine to wait and play the animation after the delay
-        StartCoroutine(PlayAnimationAfterDelay());
-    }
+   //Start is called before the first frame update
+   void Start()
+   {
+	   mAnimator = GetComponent<Animator>();
+   }
 
-    // Coroutine to handle the delay before playing the animation
-    IEnumerator PlayAnimationAfterDelay()
-    {
-        // Wait for the specified amount of time
-        yield return new WaitForSeconds(delayTime);
-
-        // Trigger the animation after the delay
-        animator.SetTrigger(animationTriggerName);
-    }
+   //Update is called once per frame
+   void update()
+   {
+	   if(mAnimator != null)
+	   {
+		   if(Input.GetKeyDown(KeyCode.K))
+		   {
+			   mAnimator.SetTrigger("TriggerTest");
+		   }
+	   }
+   }
 }
 
