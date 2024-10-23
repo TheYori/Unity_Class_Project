@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LoadingBarEventTrigger : MonoBehaviour
 {
@@ -18,10 +19,10 @@ public class LoadingBarEventTrigger : MonoBehaviour
     }
     public void whenButtonClicked()
     {
-        if(screen.activeInHierachy == false)
-          screen.setActive(true);
+        if(screen.activeInHierarchy == false)
+          screen.SetActive(true);
 
-        if(screen.activeInHierachy == true)
+        if(screen.activeInHierarchy == true)
            Destroy (screen, 5.0f);
     }
     /*{
