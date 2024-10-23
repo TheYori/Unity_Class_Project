@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class LoadingBarEventTrigger : MonoBehaviour
 {
-    private GameObject screen;
+    public GameObject screen;
 
     // Start is called before the first frame update
     void Start()

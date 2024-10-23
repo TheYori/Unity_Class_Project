@@ -722,7 +722,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &635830100
 RectTransform:
   m_ObjectHideFlags: 0
@@ -787,11 +787,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 635830099}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d1d22d80fa61df34081024fca48fc6f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  screen: {fileID: 635830099}
 --- !u!114 &635830104
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1303,13 +1304,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1783267072}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 1783267077}
+        m_TargetAssemblyTypeName: LoadingBarEventTrigger, Assembly-CSharp
+        m_MethodName: whenButtonClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1362,6 +1363,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1d22d80fa61df34081024fca48fc6f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  screen: {fileID: 635830099}
 --- !u!1 &1854868927
 GameObject:
   m_ObjectHideFlags: 0
