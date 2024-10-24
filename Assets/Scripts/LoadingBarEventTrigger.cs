@@ -15,15 +15,17 @@ public class LoadingBarEventTrigger : MonoBehaviour
     
     void Update()
     {
-        
+        //Debug.Log("GameObject has been destroyed, stopping Update()");
+        return; // Exit the Update() loop
     }
     public void whenButtonClicked()
     {
         if(screen.activeInHierarchy == false)
           screen.SetActive(true);
+         
 
         if(screen.activeInHierarchy == true)
-           Destroy (screen, 5.0f);
+           Destroy (screen, 8.0f);
     }
     /*{
         mAnimator = GetComponent<Animator>();
