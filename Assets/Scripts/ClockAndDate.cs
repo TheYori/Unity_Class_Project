@@ -49,6 +49,9 @@ public class ClockAndDate : MonoBehaviour
 
         // Update the Text component with the current date
         dateText.text = dateString;
+
+        // Enable or disable the object based on the time range
+        CheckTimeRange();
     }
 
     // Method to update the clock time based on player input
