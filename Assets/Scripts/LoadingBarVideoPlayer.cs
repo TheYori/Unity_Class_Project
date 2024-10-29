@@ -4,7 +4,7 @@ using UnityEngine.Video;  // Required for using the VideoPlayer component
 public class VideoTrigger : MonoBehaviour
 {
     private VideoPlayer videoPlayer;
-    public GameObject screen;
+    public GameObject LoadingBar;
 
     // Start is called before the first frame update
     void Start()
@@ -19,13 +19,13 @@ public class VideoTrigger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (screen == null)
+        if (LoadingBar == null)
            {
                //Debug.Log("GameObject has been destroyed, stopping Update()");
                 return; // Exit the Update() loop
            }
-        // Check if Screen is active, then play video
-        if (screen.activeInHierarchy == true)
+        // Check if LoadingBar is active, then play video
+        if (LoadingBar.activeInHierarchy == true)
         {
             PlayVideo();
             return;
