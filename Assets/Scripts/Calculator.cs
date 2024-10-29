@@ -9,6 +9,7 @@ public class Calculator : MonoBehaviour
 
     private string currentInput = "";
     private double result = 0.0;
+    private int code = 7011;
 
     public void OnButtonClick(string buttonValue)
     {
@@ -34,6 +35,16 @@ public class Calculator : MonoBehaviour
             result = System.Convert.ToDouble(new System.Data.DataTable().Compute(currentInput, ""));
             currentInput = result.ToString();
             UpdateDisplay();
+
+            if (code == result)
+            {
+                Debug.Log("Code is correct!");
+                //Run end event method
+            }
+            else 
+            {
+                Debug.Log("Code is WRONG!");
+            }
         }
         catch (System.Exception)
         {
