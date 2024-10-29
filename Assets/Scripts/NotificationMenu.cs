@@ -5,56 +5,59 @@ using UnityEngine.UI;
 
 public class NotificationMenu : MonoBehaviour
 {
-    public float speed = 5f;           // Speed of movement
-    public float targetXPosition = -10f; // Target X position to stop movement
+    public float speed = 5f;                   // Speed of movement
+    public RectTransform leftStopper;          // Reference to the target UI element
+    public RectTransform rightStopper;         // Reference to the target UI element
 
-    private Vector3 originalPosition;      // Store the original position of the object
-    private bool isMovingToLeft = true;    // Toggle for direction
-    private bool isMoving = false; // Tracks whether the object is moving
+    private RectTransform rectTransform;       // Reference to this UI element's RectTransform
+    private bool isMoving = false;             // Track whether the object is moving
+    private bool isVisible = false;
 
     void Start()
     {
-        // Save the original position when the game starts
-        originalPosition = transform.position;
+        // Get the RectTransform component of the UI element
+        rectTransform = GetComponent<RectTransform>();
     }
 
-    public void MoveToFrame()
+    // Method to start movement when the button is clicked
+    public void StartMovement()
     {
-        isMoving = true; // Start the movement when the button is pressed
+        isMoving = true;
     }
 
     void Update()
     {
-        if (isMoving)
+        if (isMoving && isVisible == false)
         {
-            if (isMovingToLeft)
+            // Move the UI element to the left
+            rectTransform.anchoredPosition += Vector2.left * speed * Time.deltaTime;
+
+            // Check for collision by comparing positions
+            if (RectTransformOverlap(rectTransform, leftStopper))
             {
-                // Move the object to the left until it reaches the target position
-                if (transform.position.x > targetXPosition)
-                {
-                    transform.position += Vector3.left * speed * Time.deltaTime;
-                }
-                else
-                {
-                    // Stop moving and toggle direction when the target position is reached
-                    isMoving = false;
-                    isMovingToLeft = false;
-                }
-            }
-            else
-            {
-                // Move the object back to the original position
-                if (transform.position.x < originalPosition.x)
-                {
-                    transform.position += Vector3.right * speed * Time.deltaTime;
-                }
-                else
-                {
-                    // Stop moving and toggle direction when the original position is reached
-                    isMoving = false;
-                    isMovingToLeft = true;
-                }
+                isMoving = false; // Stop movement if overlap with target is detected
+                isVisible = true;
             }
         }
+
+        if (isMoving && isVisible)
+        {
+            // Move the UI element to the left
+            rectTransform.anchoredPosition += Vector2.right * speed * Time.deltaTime;
+
+            // Check for collision by comparing positions
+            if (RectTransformOverlap(rectTransform, rightStopper))
+            {
+                isMoving = false; // Stop movement if overlap with target is detected
+                isVisible = false;
+            }
+        }
+    }
+
+    // Method to check if two RectTransforms overlap
+    private bool RectTransformOverlap(RectTransform rect1, RectTransform rect2)
+    {
+        return RectTransformUtility.RectangleContainsScreenPoint(rect1, rect2.position) ||
+               RectTransformUtility.RectangleContainsScreenPoint(rect2, rect1.position);
     }
 }
