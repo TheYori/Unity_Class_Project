@@ -6,8 +6,8 @@ using UnityEngine.UI;
 public class NotificationMenu : MonoBehaviour
 {
     public float speed = 5f;                   // Speed of movement
-    public RectTransform leftStopper;          // Reference to the target UI element
-    public RectTransform rightStopper;         // Reference to the target UI element
+    public RectTransform leftStopper;          // target UI element
+    public RectTransform rightStopper;         // target UI element
 
     private RectTransform rectTransform;       // Reference to this UI element's RectTransform
     private bool isMoving = false;             // Track whether the object is moving

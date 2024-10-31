@@ -26,7 +26,6 @@ public class ClockAndDate : MonoBehaviour
 
     void Start()
     {
-        // Initialize the current time to the system's current time
         currentTime = DateTime.Now;
 
         // Set up the button click event
@@ -38,7 +37,7 @@ public class ClockAndDate : MonoBehaviour
         // Format the time (HH:mm)
         string timeString = currentTime.ToString("HH:mm");
 
-        // Update the Text component with the current time
+        // Update the Text to current time
         clockText.text = timeString;
 
         // Get the current date
@@ -47,7 +46,7 @@ public class ClockAndDate : MonoBehaviour
         // Format the date (dd/mm/yyyy)
         string dateString = currentDate.ToString("dd/MM/yyyy");
 
-        // Update the Text component with the current date
+        // Update the Text to current date
         dateText.text = dateString;
 
         // Enable or disable the object based on the time range
@@ -59,7 +58,6 @@ public class ClockAndDate : MonoBehaviour
     {
         int hours, minutes, seconds;
 
-        // Try parsing the input values, using the current time if parsing fails
         if (!int.TryParse(hourInput.text, out hours))
         {
             hours = currentTime.Hour;
