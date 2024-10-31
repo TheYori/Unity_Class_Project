@@ -6,18 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class SceneChange : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+   // Changes scene when the "connect" button is pressed
+   // This method is assigned to an OnClick()
     public void ChangeScene(string PrimaryScene)
     {
         SceneManager.LoadScene(PrimaryScene);

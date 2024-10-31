@@ -7,7 +7,7 @@ public class TipChanger : MonoBehaviour
     public GameObject disableObject;
     public GameObject enableObject;
 
-    // Start is called before the first frame update
+    // Disables first tip and activates the second
     public void ChangeTip()
     {
         disableObject.SetActive(false);

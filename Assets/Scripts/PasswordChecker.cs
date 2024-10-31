@@ -6,29 +6,29 @@ using TMPro;
 
 public class PasswordChecker : MonoBehaviour
 {
-    public TMP_InputField inputField;  // The InputField in the UI
-    public string targetWord = "corvus corax";  // The word we want to check against
-    public TextMeshProUGUI feedbackText; // Optional: A text UI element to provide feedback
+    public TMP_InputField inputField;  
+    public string targetWord = "corvus corax";  // The codeword we chose
+    public TextMeshProUGUI feedbackText; // A textbox that tells if the code is wrong
 
-    public GameObject specificObject; //Object you want to open.
-    public GameObject objectToDisable; //Object you want to close.
+    public GameObject specificObject; //Object we want to open.
+    public GameObject objectToDisable; //Object we want to close.
 
     void Start()
     {
-        // Add a listener to detect when the "Enter" key is pressed (when input is submitted)
+        // A listener to detect the "Enter" key
         inputField.onSubmit.AddListener(delegate { CheckInput(); });
     }
 
     // Method to check the input
     public void CheckInput()
     {
-        string userInput = inputField.text;  // Get the text from the TMP InputField
+        string userInput = inputField.text;
 
         // Compare the input to the target word (ignoring case)
         if (userInput.Equals(targetWord, System.StringComparison.OrdinalIgnoreCase))
         {
             Debug.Log("Correct word entered! Triggering action...");
-            TriggerAction();  // Call another method to trigger the desired action
+            TriggerAction();
         }
         else
         {
@@ -41,10 +41,10 @@ public class PasswordChecker : MonoBehaviour
         }
     }
 
-    // Method to trigger the desired action (e.g., activating an object, playing a sound, etc.)
+    // Method triggers an object with the puzzle reward
     void TriggerAction()
     {
-        // Toggle the active state of the object
+        // Toggle the active state of the reward object
         bool isActive = specificObject.activeSelf;
         specificObject.SetActive(!isActive);
         objectToDisable.SetActive(false);
