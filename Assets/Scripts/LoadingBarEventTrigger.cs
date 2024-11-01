@@ -1,50 +1,57 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class LoadingBarEventTrigger : MonoBehaviour
 {
     public GameObject LoadingBar;
-    public event Action OnTaskCompleted;  // Fix: Add Action delegate for event
+    public event Action OnTaskCompleted;
 
-    // Start is called before the first frame update
     void Start()
     {
+        Debug.Log("ScriptA has started. Starting PerformTask coroutine...");
         StartCoroutine(PerformTask());
-    }
-    
-    void Update()
-    {
-        // No need for return statement in Update()
     }
 
     public void whenButtonClicked()
     {
-        if (LoadingBar.activeInHierarchy == false)
+        if (!LoadingBar.activeInHierarchy)
         {
             LoadingBar.SetActive(true);
-        }
-
-        if (LoadingBar.activeInHierarchy == true)
-        {
-            transform.position = new Vector3(1000, 1000, 1000);  // Move it far away
-;
+            StartCoroutine(RemoveAfterSeconds());
         }
     }
 
     private IEnumerator PerformTask()
     {
         Debug.Log("ScriptA is performing its task...");
-        yield return new WaitForSeconds(3);  // Simulate a delay
+        yield return new WaitForSeconds(9);  // Simulate delay
 
         Debug.Log("ScriptA has completed its task!");
+        
+        if (OnTaskCompleted != null)
+        {
+            Debug.Log("Triggering OnTaskCompleted event in ScriptA.");
+            OnTaskCompleted.Invoke();
+        }
+        else
+        {
+            Debug.LogWarning("No subscribers to OnTaskCompleted event in ScriptA.");
+        }
+    }
 
-        // Trigger the event
-        OnTaskCompleted?.Invoke();
+    private IEnumerator RemoveAfterSeconds()
+    {
+        Debug.Log("LoadingBar hides in 10 seconds");
+        yield return new WaitForSeconds(8);
+
+        Debug.Log("LoadingBar is hidden");
+        LoadingBar.SetActive(false);
     }
 }
+
+
+
 
 
 //Gammel trigger i forbindelse med Animator - Var ikke nødvendig, men godt at dokumentere
