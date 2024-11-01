@@ -12379,7 +12379,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u2022 Sort vacation pictures\n\u2022 Get that special conditioner\n\u2022
     Find recipe for blueberry cupcake\n\u2022 Make doctors appointment\n\u2022 Check
-    firewall?\n"
+    firewall?\n\u2022 Birdwatching with Adam\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -25764,7 +25764,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 176.35248}
+  m_AnchoredPosition: {x: 0, y: 175}
   m_SizeDelta: {x: 240, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1905361645
