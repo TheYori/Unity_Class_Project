@@ -1,3 +1,5 @@
+// AUTHOUR: Ricki G. Matwijkiw
+// Assited by ChatGPT-4 Turbo model
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +9,7 @@ using TMPro;
 
 public class ClockAndDate : MonoBehaviour
 {
+    // UI text that will change when the time and date change
     public TextMeshProUGUI clockText; 
     public TextMeshProUGUI dateText;
 
@@ -15,9 +18,9 @@ public class ClockAndDate : MonoBehaviour
     public TMP_InputField minuteInput;
 
     // Reference to the object you want to enable/disable
-    public GameObject objectSolution;
-    public GameObject disableTipOne;
-    public GameObject disableTipTwo;
+    public GameObject objectSolution;   // The code for the calulator puzzle
+    public GameObject disableTipOne;    // The tip to diable when app opens again
+    public GameObject disableTipTwo;    // The tip to disable when the puzzle is solved
 
     // Button to set the time
     public Button setTimeButton;

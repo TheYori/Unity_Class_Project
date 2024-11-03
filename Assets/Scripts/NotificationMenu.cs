@@ -1,3 +1,5 @@
+// AUTHOUR: Ricki G. Matwijkiw
+// Assited by ChatGPT-4 Turbo model
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,7 +12,7 @@ public class NotificationMenu : MonoBehaviour
     public RectTransform rightStopper;         // target UI element
 
     private RectTransform rectTransform;       // Reference to this UI element's RectTransform
-    private bool isMoving = false;             // Track whether the object is moving
+    private bool isMoving = false;             // Track whether the object is moving so we can stop it when it hits a rectTransform,
     private bool isVisible = false;
 
     void Start()
@@ -35,7 +37,7 @@ public class NotificationMenu : MonoBehaviour
             // Check for collision by comparing positions
             if (RectTransformOverlap(rectTransform, leftStopper))
             {
-                isMoving = false; // Stop movement if overlap with target is detected
+                isMoving = false; 
                 isVisible = true;
             }
         }
@@ -48,13 +50,13 @@ public class NotificationMenu : MonoBehaviour
             // Check for collision by comparing positions
             if (RectTransformOverlap(rectTransform, rightStopper))
             {
-                isMoving = false; // Stop movement if overlap with target is detected
+                isMoving = false; 
                 isVisible = false;
             }
         }
     }
 
-    // Method to check if two RectTransforms overlap
+    // Method to check if two RectTransforms overlap eachother
     private bool RectTransformOverlap(RectTransform rect1, RectTransform rect2)
     {
         return RectTransformUtility.RectangleContainsScreenPoint(rect1, rect2.position) ||
