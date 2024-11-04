@@ -21,10 +21,7 @@ public class VisibilityToggle : MonoBehaviour
             objectToDisable.SetActive(false);
 
             // Additional logic for opening the app goes here
-            Debug.Log("App has been opened!");
+            Debug.Log("APP OPEN");
         }
-
-
-
     }
 }
