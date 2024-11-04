@@ -1,3 +1,4 @@
+//AUTHOR: Clara Rosenkvist
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Video;
