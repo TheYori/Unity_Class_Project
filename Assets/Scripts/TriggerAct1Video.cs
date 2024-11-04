@@ -11,13 +11,13 @@ public class TriggerAct1Video : MonoBehaviour
 
     void Start()
     {
-        // Get RawImage and VideoPlayer components from Act1Video
+        // RawImage og Videoplayer til Act1VideoGet 
         rawImageComponent = Act1Video != null ? Act1Video.GetComponent<RawImage>() : null;
         videoPlayerComponent = Act1Video != null ? Act1Video.GetComponent<VideoPlayer>() : null;
 
         if (rawImageComponent != null && videoPlayerComponent != null)
         {
-            // Make the video invisible initially by setting the RawImage alpha to 0
+            // RawImage Aplha til 0, for at skjulle den
             SetAlpha(0f);
         }
         else
@@ -25,7 +25,7 @@ public class TriggerAct1Video : MonoBehaviour
             Debug.LogWarning("Act1Video is missing a RawImage or VideoPlayer component.");
         }
 
-        // Find ScriptA and subscribe to its event
+        // Find LoadingBarEventTrigger = scriptA, og "subscribe" til dens event
         LoadingBarEventTrigger scriptA = FindObjectOfType<LoadingBarEventTrigger>();
         if (scriptA != null)
         {
@@ -33,6 +33,7 @@ public class TriggerAct1Video : MonoBehaviour
         }
     }
 
+    //invisible
     private void SetAlpha(float alpha)
     {
         if (rawImageComponent != null)
@@ -49,13 +50,13 @@ public class TriggerAct1Video : MonoBehaviour
 
         if (rawImageComponent != null && videoPlayerComponent != null)
         {
-            // Make the RawImage visible
+            // RawImage synlig
             SetAlpha(1f);
 
-            // Play the video
+            // Spil video
             videoPlayerComponent.Play();
             
-            // Deactivate after 5 seconds
+            // Deactivate efter X antal sekunder (i forhold til hvor lang videoen er)
             StartCoroutine(DeactivateAfterTime(8.0f));
         }
         else
@@ -64,11 +65,11 @@ public class TriggerAct1Video : MonoBehaviour
         }
     }
 
+    //Video usynlig når den er færdig med at spille
     private IEnumerator DeactivateAfterTime(float delay)
     {
         yield return new WaitForSeconds(delay);
 
-        // Stop the video and make the RawImage invisible
         if (videoPlayerComponent != null)
         {
             videoPlayerComponent.Stop();
@@ -78,64 +79,3 @@ public class TriggerAct1Video : MonoBehaviour
         Debug.Log("Act1Video has been deactivated.");
     }
 }
-
-
-
-
-
-
-/*using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class TriggerAct1Video : MonoBehaviour
-{
-    public GameObject Act1Video;
-
-    // Start is called before the first frame update
-    void Start()
-      {
-        // Find ScriptA and subscribe to its OnTaskCompleted event
-        LoadingBarEventTrigger scriptA = FindObjectOfType<LoadingBarEventTrigger>();
-
-        if (scriptA != null)
-        {
-            scriptA.OnTaskCompleted += ActivateScript;  // Subscribe to the event
-        }
-        else
-        {
-            Debug.LogWarning("ScriptA not found. Make sure it is in the scene.");
-        }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        return;
-    }
-    public void ActivateScript()
-    {
-        Debug.Log("ScriptB has been activated after ScriptA completed its task!");
-
-        if(Act1Video.activeInHierarchy == false)
-        {
-            Act1Video.SetActive(true);
-        }
-            
-        if(Act1Video.activeInHierarchy == true)
-        {
-            Destroy(Act1Video, 5.0f);
-        }
-            
-    }
-     private void OnDestroy()
-    {
-        // Clean up the event subscription to avoid memory leaks
-       LoadingBarEventTrigger scriptA = FindObjectOfType<LoadingBarEventTrigger>();
-
-        if (scriptA != null)
-        {
-            scriptA.OnTaskCompleted -= ActivateScript;
-        }
-    }
-}*/

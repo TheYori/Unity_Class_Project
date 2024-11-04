@@ -9,10 +9,11 @@ public class LoadingBarEventTrigger : MonoBehaviour
 
     void Start()
     {
-        Debug.Log("ScriptA has started. Starting PerformTask coroutine...");
+        //Debug.Log("ScriptA has started. Starting PerformTask coroutine...");
         StartCoroutine(PerformTask());
     }
 
+    //Når knappen er trykket - Starter video og countdown
     public void whenButtonClicked()
     {
         if (!LoadingBar.activeInHierarchy)
@@ -22,9 +23,10 @@ public class LoadingBarEventTrigger : MonoBehaviour
         }
     }
 
+    //Aktivere OnTaskCompletedEvent
     private IEnumerator PerformTask()
     {
-        Debug.Log("ScriptA is performing its task...");
+        //Debug.Log("ScriptA is performing its task...");
         yield return new WaitForSeconds(9);  // Simulate delay
 
         Debug.Log("ScriptA has completed its task!");
@@ -39,48 +41,13 @@ public class LoadingBarEventTrigger : MonoBehaviour
             Debug.LogWarning("No subscribers to OnTaskCompleted event in ScriptA.");
         }
     }
-
+    //Gemmer LoadingBar efter den er færdig med at spille
     private IEnumerator RemoveAfterSeconds()
     {
-        Debug.Log("LoadingBar hides in 10 seconds");
+        //Debug.Log("LoadingBar hides in 8 seconds");
         yield return new WaitForSeconds(8);
 
         Debug.Log("LoadingBar is hidden");
         LoadingBar.SetActive(false);
     }
 }
-
-
-
-
-
-//Gammel trigger i forbindelse med Animator - Var ikke nødvendig, men godt at dokumentere
-    /*{
-        mAnimator = GetComponent<Animator>();
-        Debug.Log("Script has started!"); // Check if script starts
-        GameObject.setActive();
-
-        if (mAnimator == null)
-        {
-            Debug.LogError("Animator not found!"); // Error if Animator isn't attached
-        }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (mAnimator == null)
-        {
-            Debug.LogError("Animator is null!");
-            return;
-        }
-
-        if (Input.GetKeyDown(KeyCode.K))
-        {   
-            Debug.Log("K key pressed, playing animation!");
-            mAnimator.SetTrigger("TriggerTest");
-            GameObject.setActive();
-            Destroy (gameObject, 5.0f);
-        }
-        
-    }*/
