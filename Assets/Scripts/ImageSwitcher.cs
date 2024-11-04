@@ -1,3 +1,5 @@
+// AUTHOUR: Ricki G. Matwijkiw
+// Assited by ChatGPT-4 Turbo model
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,11 +21,11 @@ public class ImageSwitcher : MonoBehaviour
         // Check if the specific object is enabled and start the coroutine
         if (checkObject.activeInHierarchy && !isSwitching)
         {
-            StartCoroutine(SwitchImageLoop());
+            StartCoroutine(ClueChangeLoop());
         }
     }
 
-    IEnumerator SwitchImageLoop()
+    IEnumerator ClueChangeLoop()
     {
         isSwitching = true;
 

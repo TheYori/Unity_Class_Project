@@ -3090,7 +3090,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &292448697
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3140,7 +3140,7 @@ VideoPlayer:
   m_EnabledAudioTracks: 01
   m_DirectAudioMutes: 00
   m_ControlledAudioTrackCount: 1
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_SkipOnDrop: 1
   m_Looping: 0
   m_WaitForFirstFrame: 1
@@ -19815,7 +19815,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1500
-  targetXPosition: 1770
+  leftStopper: {fileID: 0}
+  rightStopper: {fileID: 0}
 --- !u!114 &1943400471
 MonoBehaviour:
   m_ObjectHideFlags: 0

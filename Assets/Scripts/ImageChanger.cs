@@ -1,3 +1,5 @@
+// AUTHOUR: Ricki G. Matwijkiw
+// Assited by ChatGPT-4 Turbo model
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +10,7 @@ public class ImageChanger : MonoBehaviour
     public Image imageComponent;    //image component
     public Sprite orignalSprite;    // OG asset
     public Sprite tempSprite;       // temp asset
+    public int waitTime = 3;
 
     //Function to attach to button
     public void ChangeSprite()
@@ -20,7 +23,7 @@ public class ImageChanger : MonoBehaviour
     {
         imageComponent.sprite = tempSprite;
 
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(waitTime);
 
         imageComponent.sprite = orignalSprite;
     }

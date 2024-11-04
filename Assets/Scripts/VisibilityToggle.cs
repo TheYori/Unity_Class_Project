@@ -1,3 +1,4 @@
+// AUTHOUR: Ricki G. Matwijkiw
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
@@ -6,8 +7,8 @@ using System.Security.Cryptography.X509Certificates;
 
 public class VisibilityToggle : MonoBehaviour
 {
-    public GameObject specificObject; //Object you want to open and close when clicking.
-    public GameObject objectToDisable; //Object you want to close - Specifically used for closing Windows' Start Menu.
+    public GameObject specificObject; //Object we want to open and close when clicking.
+    public GameObject objectToDisable; //Object we want to close - Specifically used for closing Windows' Start Menu.
 
 
      public void Visibility()

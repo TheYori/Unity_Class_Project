@@ -1,3 +1,5 @@
+// AUTHOUR: Ricki G. Matwijkiw
+// Assited by ChatGPT-4 Turbo model
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,7 +9,7 @@ using TMPro;
 public class PasswordChecker : MonoBehaviour
 {
     public TMP_InputField inputField;  
-    public string targetWord = "corvus corax";  // The codeword we chose
+    public string codeWord = "corvus corax";  // The codeword we chose
     public TextMeshProUGUI feedbackText; // A textbox that tells if the code is wrong
 
     public GameObject specificObject; //Object we want to open.
@@ -15,7 +17,7 @@ public class PasswordChecker : MonoBehaviour
 
     void Start()
     {
-        // A listener to detect the "Enter" key
+        // A listener that detects the "Enter" key when pressed
         inputField.onSubmit.AddListener(delegate { CheckInput(); });
     }
 
@@ -24,19 +26,19 @@ public class PasswordChecker : MonoBehaviour
     {
         string userInput = inputField.text;
 
-        // Compare the input to the target word (ignoring case)
-        if (userInput.Equals(targetWord, System.StringComparison.OrdinalIgnoreCase))
+        // Compares input to the target word (ignoring case)
+        if (userInput.Equals(codeWord, System.StringComparison.OrdinalIgnoreCase))
         {
-            Debug.Log("Correct word entered! Triggering action...");
+            Debug.Log("CORRECT");
             TriggerAction();
         }
         else
         {
-            Debug.Log("Incorrect word.");
+            Debug.Log("WRONG");
 
             if (feedbackText != null)
             {
-                feedbackText.text = "Incorrect word, try again!";
+                feedbackText.text = "Failure...";
             }
         }
     }
